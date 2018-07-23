@@ -18,12 +18,14 @@ mysql = MySQL(app)
 def index():
     if request.method == 'POST':
         zipcode = request.form['zip']
-        r = requests.get('https://samples.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&appid=fd38d62aa4fe1a03d86eee91fcd69f6e')
+        countrycode = request.form['cc']
+        r = requests.get('http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+','+countrycode+'&appid=4c0d9402daa2da0af1af90a091e2d35a')
         json_object = r.json()
-        temp_k = float(json_object['main']['temp'])	                     
+        temp_k = float(json_object['main']['temp'])
+        city = json_object['name']
         temp_f = (temp_k - 273.15) * 1.8 + 32
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO weather(zipcode, temprature) VALUES(%s, %s)",(zipcode, temp_f))
+        cur.execute("INSERT INTO weather(city, zipcode, temparature) VALUES(%s, %s,%s)",(city,zipcode,temp_f))
         mysql.connection.commit()
         cur.close()
         return redirect('/weather')

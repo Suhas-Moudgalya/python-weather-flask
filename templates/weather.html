@@ -1,8 +1,14 @@
 <table border = 1>
+  <tr>
+    <th>City</th>
+    <th>Zipcode</th>
+    <th>Temparature</th>    
+  </tr>
   {% for weather in weatherDetails %}
   <tr>
     <td> {{weather[0]}} </td>
     <td> {{weather[1]}} </td>
+    <td> {{weather[2]}}F </td>    
   </tr>
   {% endfor %}
 </table>
