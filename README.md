@@ -1,11 +1,11 @@
 prerequisites
 ==============
-pip install flask
-pip install requests
-pip install --upgrade setuptools (If required)
-pip install mysqlclient==1.3.9 (If required)
-pip install flask_mysqldb
-pip install PyYAML
+pip install flask.
+pip install requests.
+pip install --upgrade setuptools (If required).
+pip install mysqlclient==1.3.9 (If required).
+pip install flask_mysqldb.
+pip install PyYAML.
 
 steps
 ======
