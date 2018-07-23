@@ -21,6 +21,3 @@ Steps to be followed
 3. Run "python app.py" command inside project folder.
 
 4. Open browser and hit http://127.0.0.1:5000/
-
-
-
